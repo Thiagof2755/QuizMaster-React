@@ -1,0 +1,44 @@
+:root {
+  --tmdbDarkBlue: 0, 0, 20;
+  --main-font: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-family: var(--main-font);
+    font-family: 'Anton', sans-serif;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: ffffff;
+     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+}
+
+a { 
+   color: #cccccc;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #fff;
+}
+
+/* Estilos específicos para a barra de rolagem */
+::-webkit-scrollbar {
+  width: 5px; /* Largura da barra de rolagem */
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #585858;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #424242;
+}
