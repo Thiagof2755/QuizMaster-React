@@ -7,6 +7,8 @@ const StyledLink = styled.a`
     display: flex;
     font-family: 'Anton'; 
 
+    
+
 `;
 
 const Buton = ({ to, size, children, newTab }) => {

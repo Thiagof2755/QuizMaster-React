@@ -1,9 +1,9 @@
 :root {
   --tmdbDarkBlue: 0, 0, 20;
+
   --main-font: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
     font-family: var(--main-font);
     font-family: 'Anton', sans-serif;
-    color: rgba(255, 255, 255, 0.87);
     background-color: ffffff;
      margin: 0;
     padding: 0;

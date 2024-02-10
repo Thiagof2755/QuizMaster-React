@@ -8,7 +8,7 @@ const StyledLogo = styled(Link)`
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: #e9c46a;
+    color: var(--colorCard_LOGO_ONE);
     transition: color 0.3s ease-in-out;
     margin: 0.5rem;
     font-size: 1.5rem;

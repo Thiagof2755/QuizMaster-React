@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import CardQuizSelect from '../components/CardQuizSelect'
-import QuizCard from '../components/QuizCard';
+
 
 
 const StyledHome = styled.div`
@@ -9,7 +9,7 @@ const StyledHome = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #2a9d8f;
+  background: var(--colorBackground_ONE);
   
 
 `;
@@ -17,7 +17,7 @@ const StyledHome = styled.div`
 const Home = () => {
   return (
     <StyledHome>
-      <QuizCard />
+      <CardQuizSelect />
     </StyledHome>
     
   )
