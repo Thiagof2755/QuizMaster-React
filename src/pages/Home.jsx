@@ -1,8 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
-import CardQuizSelect from '../components/CardQuizSelect'
-
-
+import React from 'react';
+import styled from 'styled-components';
+import CardQuizSelect from '../components/CardQuizSelect';
 
 const StyledHome = styled.div`
   display: flex;
@@ -13,8 +11,6 @@ const StyledHome = styled.div`
   margin: 0 auto;
   padding: 0 auto;
   box-sizing: border-box;
-  
-
 `;
 
 const Home = () => {
@@ -22,8 +18,7 @@ const Home = () => {
     <StyledHome>
       <CardQuizSelect />
     </StyledHome>
-    
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

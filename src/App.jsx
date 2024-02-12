@@ -39,10 +39,16 @@ const StyledApp = styled.div`
 const App = () => {
   const [theme, setTheme] = useState(lightTheme);
 
+  // Definindo a função toggleTheme
   const toggleTheme = () => {
-    setTheme(prevTheme => (prevTheme === lightTheme ? darkTheme : lightTheme));
+    // Chamando a função setTheme que atualiza o estado do tema
+    // A função recebe como argumento uma função que tem como parâmetro o tema atual (prevTheme)
+    setTheme(prevTheme => (
+      // Se o tema atual é o tema claro, retorna o tema escuro, caso contrário, retorna o tema claro
+      // Isso efetivamente alterna o tema entre claro e escuro
+      prevTheme === lightTheme ? darkTheme : lightTheme
+    ));
   };
-
   return (
     <StyledApp theme={theme}>
       <NavBar toggleTheme={toggleTheme} />

@@ -11,8 +11,23 @@ const StyledQuizCard = styled.div`
     align-items: center;
     justify-content: center;
     padding: 2rem;
-    margin: 0 auto; /* Add this line to center align the component */
+    margin: 0 auto;
     color: #264653;
+    margin-top: -50%;
+
+    .button {
+        background-color: var(--colorBackground_ONE);
+        color: var(--colorNavBar_FONTE_ONE);
+        border: none;
+        border-radius: 5px;
+        padding: 0.5rem 1rem;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 1rem;
+        transition: background-color 0.3s ease-in-out;
+
+    }
+
     
      @media (max-width: 768px) {
         margin-top: -100%;
@@ -64,9 +79,12 @@ const QuizCard = (props) => {
     const [correctAnswersCount, setCorrectAnswersCount] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
     const [showResult, setShowResult] = useState(false);
+    const [upPlacar, setUpPlacar] = useState(false);
 
     const Url_Get_Quiz = import.meta.env.VITE_API_URL_GET_QUESTION;
     const Url_Validate_Answer = import.meta.env.VITE_API_URL_VALIDATE_ANSWER;
+    const Url_Post_Score = import.meta.env.VITE_API_URL_POST_SCORE;
+
 
     const getQuiz = async () => {
         try {
@@ -80,7 +98,28 @@ const QuizCard = (props) => {
             console.error(error);
         }
     };
+    const saveScore = async () => {
+        try {
+            const response = await fetch(Url_Post_Score, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    jogador: nome,
+                    categoria : 1,
+                    score: correctAnswersCount
+                })
+            });
 
+            const data = await response.json();
+            console.log(data);
+        } catch (error) {
+            console.error('Erro ao salvar score:', error);
+        }
+        alert('Score salvo com sucesso!');
+        window.location.href = '/placar';
+    }
     const validateAnswer = async (answerIndex) => {
         setIsLoading(true);
         try {
@@ -104,7 +143,6 @@ const QuizCard = (props) => {
             setIsLoading(false);
         }
     };
-
     const handleAnswer = async (answerIndex) => {
         setAnswers([...answers, {
             id: quiz[currentQuestionIndex]._id,
@@ -116,11 +154,9 @@ const QuizCard = (props) => {
             setShowResult(true);
         }
     };
-
     useEffect(() => {
         getQuiz();
     }, []);
-
     return (
         <StyledQuizCard>
             {isLoading && <p>Carregando...</p>}
@@ -141,6 +177,7 @@ const QuizCard = (props) => {
                     <h2>Obrigado por responder!</h2>
                     <p>{nome}</p>
                     <p>Total de respostas corretas: {correctAnswersCount}</p>
+                    <button className="button" onClick={saveScore}>Salvar</button>
                 </div>
             )}
         </StyledQuizCard>

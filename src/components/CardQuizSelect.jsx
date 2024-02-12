@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import QuizCard from './QuizCard';
-import { useState } from 'react';
 
 const StyledCardQuizSelect = styled.div`
     width: 345px;
@@ -13,9 +12,7 @@ const StyledCardQuizSelect = styled.div`
     align-items: center;
     justify-content: center;
     padding: 2rem;
-    margin-top: -50%;
     visibility: ${(props) => (props.visible ? 'visible' : 'hidden')}; /* Adiciona visibilidade baseada na propriedade 'visible' */
-
 
     .h1 {
         color: var(--colorNavBar_FONTE_ONE);
@@ -37,6 +34,7 @@ const StyledCardQuizSelect = styled.div`
         outline: none;
         box-sizing: border-box;
     }
+
     .button {
         background-color: var(--colorBackground_ONE);
         color: var(--colorNavBar_FONTE_ONE);
@@ -47,7 +45,6 @@ const StyledCardQuizSelect = styled.div`
         cursor: pointer;
         margin-top: 1rem;
         transition: background-color 0.3s ease-in-out;
-
     }
 
     @media (max-width: 768px) {
@@ -68,6 +65,10 @@ const CardQuizSelect = () => {
     };
 
     const handleSubmit = () => {
+        if (name === '') {
+            alert('Digite seu nome');
+            return;
+        }
         setShowQuiz(true); // Mostra o QuizCard quando o formulário é enviado
     };
 
