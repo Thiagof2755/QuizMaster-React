@@ -19,6 +19,7 @@ const StyledNavBar = styled.div`
     max-width: 768px;
     font-size: 12px;
     padding-bottom: 0.5rem;
+    
     padding-top: 0.5rem;
   }
 `;
@@ -49,7 +50,7 @@ const StyledSVG = styled.div`
     font-family: 'Anton';
 
     a:hover {
-      color: var(--colorBackground_ONE); /* Cor dos links ao passar o mouse */
+      color: var(--colorBackground_ONE);
     }
 
     @media (max-width: 768px) {

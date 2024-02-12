@@ -2,12 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledCardPlacar = styled.div`
-    width: 100%;
+    width: 95%;
     max-width: 400px;
     height: auto;
     border-radius: 10px;
     background-color: var(--colorCard_LOGO_ONE);
-    padding: 2rem;
+    padding: 1rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     box-sizing:border-box ;
@@ -16,7 +16,10 @@ const StyledCardPlacar = styled.div`
         padding: 1rem;
         max-width: 85%;
         margin-bottom: 0 auto;
-        margin-top: -10rem;
+        margin-top: 20%;
+        box-sizing:border-box ;
+
+        
     }
 `;
 

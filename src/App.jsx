@@ -15,7 +15,7 @@ const lightTheme = {
 
 const darkTheme = {
   colorNavBarFont: '#F4F1DE',
-  colorBackground: '#1D3557',
+  colorBackground: '#1D3757',
   colorCardLogo: '#457B9D',
   colorPaintRoller: '#264653'
 };
@@ -25,7 +25,7 @@ const StyledApp = styled.div`
   --colorBackground_ONE: ${({ theme }) => theme.colorBackground};
   --colorCard_LOGO_ONE: ${({ theme }) => theme.colorCardLogo};
   --colorPaintRoller_ONE: ${({ theme }) => theme.colorPaintRoller};
-
+    box-sizing: border-box;
   a {
     color: ${({ theme }) => theme.colorCardLogo};
     text-decoration: none;

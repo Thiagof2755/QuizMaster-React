@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import QuizCard from './QuizCard';
+import Swal from 'sweetalert2';
+
 
 const StyledCardQuizSelect = styled.div`
     width: 345px;
@@ -66,7 +68,11 @@ const CardQuizSelect = () => {
 
     const handleSubmit = () => {
         if (name === '') {
-            alert('Digite seu nome');
+            Swal.fire({
+                title: "Erro",
+                text: "Complete o campo de nome!",
+                icon: "error"
+              });
             return;
         }
         setShowQuiz(true); // Mostra o QuizCard quando o formulário é enviado

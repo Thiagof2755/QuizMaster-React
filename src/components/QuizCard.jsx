@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const StyledQuizCard = styled.div`
     width: 345px;
@@ -27,9 +29,8 @@ const StyledQuizCard = styled.div`
         transition: background-color 0.3s ease-in-out;
 
     }
-
     
-     @media (max-width: 768px) {
+    @media (max-width: 768px) {
         margin-top: -100%;
         width: 90%;
         height: 100%;
@@ -37,7 +38,6 @@ const StyledQuizCard = styled.div`
         padding: 1rem;
 
     }
-
 `;
 
 const QuestionContainer = styled.div`
@@ -79,12 +79,12 @@ const QuizCard = (props) => {
     const [correctAnswersCount, setCorrectAnswersCount] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
     const [showResult, setShowResult] = useState(false);
-    const [upPlacar, setUpPlacar] = useState(false);
+
+    const navigate = useNavigate(); // Obtendo o objeto de histórico
 
     const Url_Get_Quiz = import.meta.env.VITE_API_URL_GET_QUESTION;
     const Url_Validate_Answer = import.meta.env.VITE_API_URL_VALIDATE_ANSWER;
     const Url_Post_Score = import.meta.env.VITE_API_URL_POST_SCORE;
-
 
     const getQuiz = async () => {
         try {
@@ -98,28 +98,7 @@ const QuizCard = (props) => {
             console.error(error);
         }
     };
-    const saveScore = async () => {
-        try {
-            const response = await fetch(Url_Post_Score, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    jogador: nome,
-                    categoria : 1,
-                    score: correctAnswersCount
-                })
-            });
 
-            const data = await response.json();
-            console.log(data);
-        } catch (error) {
-            console.error('Erro ao salvar score:', error);
-        }
-        alert('Score salvo com sucesso!');
-        window.location.href = '/placar';
-    }
     const validateAnswer = async (answerIndex) => {
         setIsLoading(true);
         try {
@@ -143,6 +122,7 @@ const QuizCard = (props) => {
             setIsLoading(false);
         }
     };
+
     const handleAnswer = async (answerIndex) => {
         setAnswers([...answers, {
             id: quiz[currentQuestionIndex]._id,
@@ -154,9 +134,48 @@ const QuizCard = (props) => {
             setShowResult(true);
         }
     };
+
+    const saveScore = async () => {
+        try {
+            const response = await fetch(Url_Post_Score, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    jogador: nome,
+                    categoria: 1,
+                    score: correctAnswersCount
+                })
+            });
+
+            const data = await response.json();
+            console.log(data);
+        } catch (error) {
+            console.error('Erro ao salvar score:', error);
+        }
+        Swal.fire({
+            title: "Player Score",
+            text: "Placar salvo",
+            icon: "success",
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+        });
+
+        // Redirecionamento após 3 segundos (3000 milissegundos)
+        setTimeout(() => {
+            navigate('/placar'); // Redirecionando para a página de placar
+        }, 3000);
+    };
+
     useEffect(() => {
         getQuiz();
     }, []);
+
     return (
         <StyledQuizCard>
             {isLoading && <p>Carregando...</p>}
