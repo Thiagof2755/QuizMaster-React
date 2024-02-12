@@ -49,6 +49,14 @@ const StyledCardQuizSelect = styled.div`
         transition: background-color 0.3s ease-in-out;
 
     }
+
+    @media (max-width: 768px) {
+        width: 100%;
+        height: auto;
+        margin: auto, 0;
+        box-sizing: border-box;
+        margin-top: -250px;
+    }
 `;
 
 const CardQuizSelect = () => {

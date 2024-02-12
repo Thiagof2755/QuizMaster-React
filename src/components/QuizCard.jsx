@@ -2,13 +2,27 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 const StyledQuizCard = styled.div`
-    width: 400px;
+    width: 345px;
+    height: 300px;
     border-radius: 10px;
-    background-color:var(--colorCard_LOGO_ONE);
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 30px;
+    background-color: var(--colorCard_LOGO_ONE);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    margin: 0 auto; /* Add this line to center align the component */
     color: #264653;
-    margin-top: -75%;
+    
+     @media (max-width: 768px) {
+        margin-top: -450px;
+        width: 90%;
+        height: 100%;
+        box-sizing: border-box;
+        padding: 1rem;
+
+    }
+
 `;
 
 const QuestionContainer = styled.div`
@@ -49,7 +63,7 @@ const QuizCard = (props) => {
     const [answers, setAnswers] = useState([]);
     const [correctAnswersCount, setCorrectAnswersCount] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
-    const [showResult, setShowResult] = useState(false); 
+    const [showResult, setShowResult] = useState(false);
 
     const Url_Get_Quiz = import.meta.env.VITE_API_URL_GET_QUESTION;
     const Url_Validate_Answer = import.meta.env.VITE_API_URL_VALIDATE_ANSWER;
