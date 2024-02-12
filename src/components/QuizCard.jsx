@@ -15,7 +15,7 @@ const StyledQuizCard = styled.div`
     color: #264653;
     
      @media (max-width: 768px) {
-        margin-top: -450px;
+        margin-top: -100%;
         width: 90%;
         height: 100%;
         box-sizing: border-box;

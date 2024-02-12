@@ -10,6 +10,9 @@ const StyledHome = styled.div`
   align-items: center;
   height: 100vh;
   background: var(--colorBackground_ONE);
+  margin: 0 auto;
+  padding: 0 auto;
+  box-sizing: border-box;
   
 
 `;
