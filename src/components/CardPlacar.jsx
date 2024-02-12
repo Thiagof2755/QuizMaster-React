@@ -10,6 +10,7 @@ const StyledCardPlacar = styled.div`
     padding: 2rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    box-sizing:border-box ;
 
     @media (max-width: 768px) {
         padding: 1rem;
