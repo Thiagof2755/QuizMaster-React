@@ -67,8 +67,8 @@ const NavBar = ({ theme, toggleTheme }) => {
       <Logo />
       <BarRight>
         <Buton to="/">Home</Buton>
-        <Buton to="/sobre">Sobre</Buton>
         <Buton to="/placar">Placar</Buton>
+        <Buton to="/sobre">Sobre</Buton>
         <StyledSVG>
           <button className='Temas' onClick={toggleTheme}><FaPaintRoller /> </button>
           <Buton to="https://github.com/Thiagof2755"><FaGithubSquare /></Buton>

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import CardQuizSelect from '../components/CardQuizSelect';
 
+// Define a div estilizada para conter o conteúdo da página inicial
 const StyledHome = styled.div`
   display: flex;
   justify-content: center;
@@ -13,6 +14,7 @@ const StyledHome = styled.div`
   box-sizing: border-box;
 `;
 
+// Componente funcional para renderizar a página inicial
 const Home = () => {
   return (
     <StyledHome>

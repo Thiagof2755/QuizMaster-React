@@ -1,25 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
 const StyledCardPlacar = styled.div`
     width: 95%;
     max-width: 400px;
-    height: auto;
+    height: 900px; /* Manteremos uma altura fixa para o scroll funcionar */
+    overflow-y: auto; /* Adicionaremos overflow-y: auto para criar o scroll apenas quando necessário */
     border-radius: 10px;
     background-color: var(--colorCard_LOGO_ONE);
     padding: 1rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    box-sizing:border-box ;
+    box-sizing: border-box;
+    
 
     @media (max-width: 768px) {
         padding: 1rem;
         max-width: 85%;
         margin-bottom: 0 auto;
         margin-top: 20%;
-        box-sizing:border-box ;
-
-        
+        box-sizing: border-box;
     }
 `;
 
@@ -71,7 +71,17 @@ const sortPlacar = (placar) => {
 
 const CardPlacar = ({ placar }) => {
     const placarOrdenado = sortPlacar(placar);
-    
+
+    useEffect(() => {
+        if (placarOrdenado.length > 8) {
+            // Se houver mais de 8 itens, fazer o scroll para baixo
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth'
+            });
+        }
+    }, [placarOrdenado]);
+
     return (
         <StyledCardPlacar>
             <Title>PLACAR</Title>

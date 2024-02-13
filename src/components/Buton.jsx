@@ -6,12 +6,9 @@ const StyledLink = styled.a`
     color: #fff;
     display: flex;
     font-family: 'Anton'; 
-
-    
-
 `;
 
-const Buton = ({ to, size, children, newTab }) => {
+const Button = ({ to, size, children, newTab }) => {
     const isExternalLink = /^https?:\/\//.test(to); // Verifica se o link é externo
 
     if (isExternalLink && newTab) {
@@ -29,8 +26,8 @@ const Buton = ({ to, size, children, newTab }) => {
     );
 };
 
-Buton.defaultProps = {
+Button.defaultProps = {
     newTab: true, // Por padrão, abre em uma nova aba
 };
 
-export default Buton;
+export default Button;

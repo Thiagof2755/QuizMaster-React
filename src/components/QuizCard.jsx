@@ -27,7 +27,6 @@ const StyledQuizCard = styled.div`
         cursor: pointer;
         margin-top: 1rem;
         transition: background-color 0.3s ease-in-out;
-
     }
     
     @media (max-width: 768px) {
@@ -36,7 +35,6 @@ const StyledQuizCard = styled.div`
         height: 100%;
         box-sizing: border-box;
         padding: 1rem;
-
     }
 `;
 
@@ -77,10 +75,10 @@ const QuizCard = (props) => {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [answers, setAnswers] = useState([]);
     const [correctAnswersCount, setCorrectAnswersCount] = useState(0);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const [showResult, setShowResult] = useState(false);
 
-    const navigate = useNavigate(); // Obtendo o objeto de histórico
+    const navigate = useNavigate();
 
     const Url_Get_Quiz = import.meta.env.VITE_API_URL_GET_QUESTION;
     const Url_Validate_Answer = import.meta.env.VITE_API_URL_VALIDATE_ANSWER;
@@ -96,6 +94,8 @@ const QuizCard = (props) => {
             setQuiz(data);
         } catch (error) {
             console.error(error);
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -155,8 +155,8 @@ const QuizCard = (props) => {
             console.error('Erro ao salvar score:', error);
         }
         Swal.fire({
-            title: "Player Score",
-            text: "Placar salvo",
+            title: "Placar salvo",
+            text: "Redirecionando...",
             icon: "success",
             timer: 3000,
             timerProgressBar: true,
@@ -166,9 +166,8 @@ const QuizCard = (props) => {
             }
         });
 
-        // Redirecionamento após 3 segundos (3000 milissegundos)
         setTimeout(() => {
-            navigate('/placar'); // Redirecionando para a página de placar
+            navigate('/placar');
         }, 3000);
     };
 

@@ -3,20 +3,22 @@ import CardPlacar from '../components/CardPlacar';
 import styled from 'styled-components';
 
 const StyledPlacar = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-height: 100vh;
-background: var(--colorBackground_ONE);
-margin: 0 auto;
-padding: 0 auto;
-box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: var(--colorBackground_ONE);
+  margin: 0 auto;
+  padding: 0 auto;
+  box-sizing: border-box;
 `;
 
 const Placar = () => {
   const Url_Get_AllScore = import.meta.env.VITE_API_URL_GET_SCORE;
   const [placar, setPlacar] = useState([]);
 
+  /* Função para buscar o placar da API*/
+  
   const getPlacar = async () => {
     try {
       const response = await fetch(Url_Get_AllScore);
@@ -36,7 +38,7 @@ const Placar = () => {
 
   return (
     <StyledPlacar>
-    <CardPlacar placar={placar} />
+      <CardPlacar placar={placar} />
     </StyledPlacar>
   )
 }

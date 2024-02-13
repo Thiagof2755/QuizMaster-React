@@ -15,7 +15,7 @@ const StyledCardQuizSelect = styled.div`
     justify-content: center;
     padding: 2rem;
     visibility: ${(props) => (props.visible ? 'visible' : 'hidden')}; /* Adiciona visibilidade baseada na propriedade 'visible' */
-
+    margin-top: -40%;
     .h1 {
         color: var(--colorNavBar_FONTE_ONE);
         font-size: 36px;
@@ -66,7 +66,7 @@ const CardQuizSelect = () => {
         setName(event.target.value);
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = () => { // Função de envio do formulário
         if (name === '') {
             Swal.fire({
                 title: "Erro",
