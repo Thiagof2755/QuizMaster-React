@@ -20,6 +20,7 @@ const StyledCardPlacar = styled.div`
         margin-bottom: 0 auto;
         margin-top: 20%;
         box-sizing: border-box;
+        max-height: 800px;
     }
 `;
 
