@@ -42,7 +42,7 @@ const Sobre = () => {
         Seja bem-vindo ao Quiz Master e divirta-se desafiando seus conhecimentos!
       </Paragrafo>
 
-      <Titulo>API QuizMaster - README</Titulo>
+      <Titulo>API QuizMaster</Titulo>
       <Paragrafo>
         Esta é uma API para criar e gerenciar perguntas e respostas de um quiz.
       </Paragrafo>
