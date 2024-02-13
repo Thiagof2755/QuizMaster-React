@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 const StyledSobre = styled.div`
 background: var(--colorBackground_ONE);
+width: 100%;
+height: 100vh;
 `;
 
 const SobreContainer = styled.div`
