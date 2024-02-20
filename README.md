@@ -39,7 +39,7 @@ Para executar o Quiz Master localmente, siga as instruções abaixo:
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/quiz-master.git
+git clone https://github.com/Thiagof2755/QuizMaster-React.git
 ```
 
 2. Navegue até o diretório do projeto:
